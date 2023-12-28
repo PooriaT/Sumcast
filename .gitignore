@@ -153,4 +153,4 @@ dmypy.json
 cython_debug/
 
 # Some directories
-data/audio/*
+core/data/*
