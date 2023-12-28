@@ -9,12 +9,9 @@ def get_podcast_rss_feed_url(podcast_name):
         response.raise_for_status()
         data = response.json()
 
-        # Assuming the first result is the podcast you're looking for
         podcast = data.get("results", [])[0]
-
         if podcast:
-            rss_feed_url = podcast.get("feedUrl")
-            return rss_feed_url
+            return podcast.get("feedUrl")
         else:
             print("Podcast not found")
 
