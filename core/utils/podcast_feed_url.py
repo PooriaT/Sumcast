@@ -5,8 +5,8 @@ def get_podcast_rss_feed_url(podcast_name):
     params = {"media": "podcast", "term": podcast_name}
 
     try:
-        response = requests.get(base_url, params=params)
-        response.raise_for_status() 
+        response = requests.get(base_url, params=params, timeout=5)
+        response.raise_for_status()
         data = response.json()
 
         # Assuming the first result is the podcast you're looking for
@@ -22,11 +22,10 @@ def get_podcast_rss_feed_url(podcast_name):
         print(f"Error fetching podcast: {e}")
 
 
-if __name__ == "__main__":
-    # Example usage:
-    podcast_name = "startalk"#"your-podcast-name"
-    rss_feed_url = get_podcast_rss_feed_url(podcast_name)
+# if __name__ == "__main__":
+#     # Example usage:
+#     PODCAST_NAME = "startalk"#"your-podcast-name" "startalk"
+#     extracted_rss_feed_url = get_podcast_rss_feed_url(PODCAST_NAME)
 
-    if rss_feed_url:
-        print(f"Podcast RSS Feed URL: {rss_feed_url}")
-
+#     if extracted_rss_feed_url:
+#         print(f"Podcast RSS Feed URL: {extracted_rss_feed_url}")
