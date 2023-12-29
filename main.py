@@ -1,16 +1,19 @@
 import os
 from core.utils.podcast_feed_url import get_podcast_rss_feed_url
 from core.utils.podcast_audio import download_podcast_audio, get_podcast_audio_url
-from core.utils.transcribe import get_large_audio_transcription_on_silence
+# from core.utils.transcribe import get_large_audio_transcription_on_silence
+from core.utils.transcribe_whisper import transcribe_large_audio_with_whisper
 import time
 
+BASE_TEXT_PATH = "core/data/text"
+
 def process_podcast_text(first_step) -> None:
-    text_directory = "core/data/text"
-    os.makedirs(text_directory, exist_ok=True)
+    os.makedirs(BASE_TEXT_PATH, exist_ok=True)
     second_step = time.time()
     print(f"Podcast audio downloaded in {round(second_step - first_step, 2)} seconds.")
-    whole_text = get_large_audio_transcription_on_silence("core/data/audio/podcast.mp3")
-    with open(os.path.join(text_directory, "whole_text.txt"), "w", encoding="utf-8") as file:
+    # whole_text = get_large_audio_transcription_on_silence("core/data/audio/podcast.mp3")
+    whole_text = transcribe_large_audio_with_whisper("core/data/audio/podcast.mp3")
+    with open(os.path.join(BASE_TEXT_PATH, "whole_text.txt"), "w", encoding="utf-8") as file:
         file.write(whole_text)
     print("Podcast Text generated successfully!")
     third_step = time.time()
@@ -36,5 +39,5 @@ def main() -> None:
 if __name__ == "__main__":
     # For Test
     # startalk
-    # Cosmic Queries – Galaxies GaloreS
+    # Cosmic Queries – Galaxies Galore
     main()
