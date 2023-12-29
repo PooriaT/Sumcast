@@ -8,3 +8,5 @@ Required libraries:
 feedparser -> the fetch the data from Podcast RSS 
 
 pip3 install SpeechRecognition pydub
+
+pip install openai-whisper
