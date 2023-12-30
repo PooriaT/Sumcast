@@ -1,9 +1,10 @@
 import os
+import time
 from core.utils.podcast_feed_url import get_podcast_rss_feed_url
 from core.utils.podcast_audio import download_podcast_audio, get_podcast_audio_url
 # from core.utils.transcribe import get_large_audio_transcription_on_silence
 from core.utils.transcribe_whisper import transcribe_large_audio_with_whisper
-import time
+from core.utils.gemini import summarizing
 
 BASE_TEXT_PATH = "core/data/text"
 
@@ -18,6 +19,10 @@ def process_podcast_text(first_step) -> None:
     print("Podcast Text generated successfully!")
     third_step = time.time()
     print(f"Podcast Text generated in {round(third_step - second_step, 2)} seconds.")
+    summary = summarizing(os.path.join(BASE_TEXT_PATH, "whole_text.txt"), streaming=False)
+    print(summary.text)
+    fourth_step = time.time()
+    print(f"Podcast Summary generated in {round(fourth_step - third_step, 2)} seconds.")
 
 def main() -> None:
     print("Welcome to the Podcast Summary App!")
