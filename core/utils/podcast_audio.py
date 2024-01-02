@@ -2,6 +2,8 @@ import requests
 import feedparser
 import os
 
+BASE_AUDIO_PATH = "core/storage/audio/"
+
 def get_podcast_audio_url(podcast_url, episode_name):
     episode_name = episode_name.lower()
 
@@ -22,7 +24,7 @@ def download_podcast_audio(episode_audio_url):
     response = requests.get(episode_audio_url, stream=True, timeout=5)
     response.raise_for_status()
    
-    audio_directory = "core/data/audio" # .. -> core
+    audio_directory = BASE_AUDIO_PATH
     os.makedirs(audio_directory, exist_ok=True)
 
     audio_file_path = os.path.join(audio_directory, "podcast.mp3")

@@ -3,7 +3,7 @@ import math
 import os
 import whisper
 
-BASE_CHUNK_PATH = "core/data/audio/chunks/"
+BASE_CHUNK_PATH = "core/storage/audio/chunks/"
 DURATION = 10 * 60
 
 def transcribe_audio(audio_path):

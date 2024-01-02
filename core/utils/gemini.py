@@ -14,7 +14,6 @@ def summarizing(text_path, streaming):
         text = file.read()
     prompt = f"""
         Imagine you are a senior reviewer.
-        The provided text is the transcription of a podcast episode.
         Summarize the text and highlight the important parts. The text is as follows: \n
         {text}
     """
