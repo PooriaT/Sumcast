@@ -153,4 +153,4 @@ dmypy.json
 cython_debug/
 
 # Some directories
-core/data/*
+core/storage/*

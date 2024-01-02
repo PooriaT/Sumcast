@@ -6,14 +6,15 @@ from core.utils.podcast_audio import download_podcast_audio, get_podcast_audio_u
 from core.utils.transcribe_whisper import transcribe_large_audio_with_whisper
 from core.utils.gemini import summarizing
 
-BASE_TEXT_PATH = "core/data/text"
+BASE_TEXT_PATH = "core/storage/text/"
+BASE_AUDIO_PATH = "core/storage/audio/"
 
 def process_podcast_text(first_step) -> None:
     os.makedirs(BASE_TEXT_PATH, exist_ok=True)
     second_step = time.time()
     print(f"Podcast audio downloaded in {round(second_step - first_step, 2)} seconds.")
     # whole_text = get_large_audio_transcription_on_silence("core/data/audio/podcast.mp3")
-    whole_text = transcribe_large_audio_with_whisper("core/data/audio/podcast.mp3")
+    whole_text = transcribe_large_audio_with_whisper(f"{BASE_AUDIO_PATH}podcast.mp3")
     with open(os.path.join(BASE_TEXT_PATH, "whole_text.txt"), "w", encoding="utf-8") as file:
         file.write(whole_text)
     print("Podcast Text generated successfully!")
