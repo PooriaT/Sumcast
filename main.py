@@ -1,7 +1,7 @@
 import os
 import time
 from core.utils.podcast_feed_url import get_podcast_rss_feed_url
-from core.utils.podcast_audio import download_podcast_audio, get_podcast_audio_url
+from core.utils.podcast_audio import download_episode_audio, get_episode_audio_url
 # from core.utils.transcribe import get_large_audio_transcription_on_silence
 from core.utils.transcribe_whisper import transcribe_large_audio_with_whisper
 from core.utils.gemini import summarizing
@@ -32,9 +32,10 @@ def main() -> None:
     first_step = time.time()
     podcast_url = get_podcast_rss_feed_url(podcast_name)
     if podcast_url:
-        episode_audio_url = get_podcast_audio_url(podcast_url, episode_name)
+        episode_audio_url, episode_duration = get_episode_audio_url(podcast_url, episode_name)
         if episode_audio_url and "Failed to fetch data" not in episode_audio_url:
-            download_podcast_audio(episode_audio_url)
+            download_episode_audio(episode_audio_url)
+            print(f"You need to be patient. It takes time to process the audio. Please wait approximately for {episode_duration * 0.3} mintues.")
             process_podcast_text(first_step)
         else:
             print("Failed to download podcast audio. Please try again later.")
