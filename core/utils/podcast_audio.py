@@ -1,6 +1,7 @@
 import requests
 import feedparser
 import os
+from .fuzzy_matching import fuzzy_match_with_threshold
 
 BASE_AUDIO_PATH = "core/storage/audio/"
 
@@ -12,7 +13,8 @@ def get_episode_audio_url(podcast_url, episode_name):
     if response.status_code == 200:
         feed = feedparser.parse(response.text)
         for entry in feed.entries:
-            if entry.title.lower() in episode_name:
+            entry_lower = entry.title.lower()
+            if fuzzy_match_with_threshold(episode_name, entry_lower, 93):
                 for link in entry.links:
                     if link.type == 'audio/mpeg':
                         duration = list(map(int, entry.itunes_duration.split(':')))
@@ -25,7 +27,7 @@ def get_episode_audio_url(podcast_url, episode_name):
 def download_episode_audio(episode_audio_url):
     response = requests.get(episode_audio_url, stream=True, timeout=5)
     response.raise_for_status()
-   
+
     audio_directory = BASE_AUDIO_PATH
     os.makedirs(audio_directory, exist_ok=True)
 
@@ -33,7 +35,7 @@ def download_episode_audio(episode_audio_url):
     with open(audio_file_path, "wb") as file:
         for chunk in response.iter_content(chunk_size=8192):
             file.write(chunk)
-        
+
     print("Podcast audio downloaded successfully!")
 
 
