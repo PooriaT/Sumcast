@@ -35,7 +35,7 @@ def main() -> None:
         episode_audio_url, episode_duration = get_episode_audio_url(podcast_url, episode_name)
         if episode_audio_url and "Failed to fetch data" not in episode_audio_url:
             download_episode_audio(episode_audio_url)
-            print(f"You need to be patient. It takes time to process the audio. Please wait approximately for {episode_duration * 0.3} mintues.")
+            print(f"You need to be patient. It takes time to process the audio. Please wait approximately for {int(episode_duration * 0.33)} mintues.")
             process_podcast_text(first_step)
         else:
             print("Failed to download podcast audio. Please try again later.")
