@@ -4,8 +4,8 @@ from .podcast_audio import download_episode_audio, get_episode_audio_url
 from .transcribe_whisper import transcribe_large_audio_with_whisper
 from .gemini import summarizing
 
-BASE_TEXT_PATH = "core/storage/text/"
-BASE_AUDIO_PATH = "core/storage/audio/"
+BASE_TEXT_PATH = "storage/temp/text/"
+BASE_AUDIO_PATH = "storage/temp/audio/"
 
 def process_podcast_text(podcast_name: str, episode_name: str) -> None:
     podcast_url = get_podcast_rss_feed_url(podcast_name)
