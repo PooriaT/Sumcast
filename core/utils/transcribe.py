@@ -3,8 +3,8 @@ import os
 from pydub import AudioSegment
 from pydub.silence import split_on_silence
 
-BASE_CHUNK_PATH = "core/storage/audio/chunks/"
-# create a speech recognition object
+BASE_CHUNK_PATH = "storage/temp/audio/chunks/"
+
 r = sr.Recognizer()
 
 def transcribe_audio(path):
@@ -34,10 +34,6 @@ def get_large_audio_transcription_on_silence(path):
         try:
             text = transcribe_audio(chunk_filename)
             whole_text += text + " "
-        except Exception as e:#sr.UnknownValueError as e:
+        except Exception as e:
             print("Error:", str(e))
     return whole_text
-
-# if __name__ == '__main__':
-#     path = "../storage/audio/podcast.mp3"
-#     print("\nFull text: \n", get_large_audio_transcription_on_silence(path))

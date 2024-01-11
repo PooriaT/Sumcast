@@ -3,13 +3,12 @@ import feedparser
 import os
 from .fuzzy_matching import fuzzy_match_with_threshold
 
-BASE_AUDIO_PATH = "core/storage/audio/"
+BASE_AUDIO_PATH = "storage/temp/audio/"
 
 def get_episode_audio_url(podcast_url, episode_name):
     episode_name = episode_name.lower()
-
     response = requests.get(podcast_url, timeout=5)
-    
+
     if response.status_code == 200:
         feed = feedparser.parse(response.text)
         for entry in feed.entries:
@@ -17,8 +16,11 @@ def get_episode_audio_url(podcast_url, episode_name):
             if fuzzy_match_with_threshold(episode_name, entry_lower, 93):
                 for link in entry.links:
                     if link.type == 'audio/mpeg':
-                        duration = list(map(int, entry.itunes_duration.split(':')))
-                        duration_minutes = duration[0] * 60 + duration[1]
+                        if ":" in entry.itunes_duration:
+                            duration = list(map(int, entry.itunes_duration.split(':')))
+                            duration_minutes = duration[0] * 60 + duration[1]
+                        else:
+                            duration_minutes = int(entry.itunes_duration)/60
                         return link.href, duration_minutes
         return None, 0
     else:
@@ -37,12 +39,3 @@ def download_episode_audio(episode_audio_url):
             file.write(chunk)
 
     print("Podcast audio downloaded successfully!")
-
-
-# if __name__ == "__main__":
-#     PODCAST_URL = "https://feeds.simplecast.com/4T39_jAj" #"your-podcast-url"
-#     EPISODE_NAME = "Cosmic Queries – Galaxies Galore"
-#     EPISODE_AUDIO_URL = get_episode_audio_url(PODCAST_URL, EPISODE_NAME)
-    # if EPISODE_AUDIO_URL and "Failed to fetch data" not in EPISODE_AUDIO_URL:
-    #     print(f"Podcast audio URL: {EPISODE_AUDIO_URL}")
-        # download_episode_audio(EPISODE_AUDIO_URL)

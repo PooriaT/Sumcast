@@ -28,6 +28,6 @@ def get_summary(body: dict):
 # This is for testing
 @app.get("/api/prompt_feedback/")
 def prompt_feedback():
-    BASE_TEXT_PATH = "core/storage/text/"
+    BASE_TEXT_PATH = "storage/temp/text/"
     summary = summarizing(os.path.join(BASE_TEXT_PATH, "whole_text.txt"), streaming=False)
     return {"feedback": str(summary.prompt_feedback)}
