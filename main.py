@@ -4,6 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse
 from core.utils.process import process_podcast_text
 from core.utils.gemini import summarizing
+from constants import BASE_TEXT_PATH
 
 app = FastAPI()
 origins = ["*"]
@@ -33,6 +34,5 @@ def get_summary(body: dict):
 # This is for testing
 @app.get("/api/prompt_feedback/")
 def prompt_feedback():
-    BASE_TEXT_PATH = "storage/temp/text/"
     summary = summarizing(os.path.join(BASE_TEXT_PATH, "whole_text.txt"), streaming=False)
     return {"feedback": str(summary.prompt_feedback)}

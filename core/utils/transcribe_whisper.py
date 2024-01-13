@@ -2,8 +2,8 @@ from pydub import AudioSegment
 import math
 import os
 import whisper
+from constants import BASE_CHUNK_PATH
 
-BASE_CHUNK_PATH = "storage/temp/audio/chunks/"
 DURATION = 10 * 60
 
 def transcribe_audio(audio_path):
