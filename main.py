@@ -1,6 +1,7 @@
 import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import HTMLResponse
 from core.utils.process import process_podcast_text
 from core.utils.gemini import summarizing
 
@@ -17,6 +18,10 @@ app.add_middleware(
 
 # uvicorn.run('main:app', host="0.0.0.0", port=8000, workers=4)
 # python3 -m uvicorn main:app --host 0.0.0.0 --port 8000 --reload -> for development
+# @app.get("/")
+# def root():
+#     with open("static/index.html", "r", encoding="utf-8") as file:
+#         return HTMLResponse(file.read())
 
 @app.post("/api/summarize/")
 def get_summary(body: dict):
