@@ -2,8 +2,7 @@ import requests
 import feedparser
 import os
 from .fuzzy_matching import fuzzy_match_with_threshold
-
-BASE_AUDIO_PATH = "storage/temp/audio/"
+from constants import BASE_AUDIO_PATH
 
 def get_episode_audio_url(podcast_url, episode_name):
     episode_name = episode_name.lower()
