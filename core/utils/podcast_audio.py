@@ -25,14 +25,14 @@ def get_episode_audio_url(podcast_url, episode_name):
     else:
         return f"Failed to fetch data. Status code: {response.status_code}", 0
 
-def download_episode_audio(episode_audio_url):
+def download_episode_audio(episode_audio_url, client_id):
     response = requests.get(episode_audio_url, stream=True, timeout=5)
     response.raise_for_status()
 
     audio_directory = BASE_AUDIO_PATH
     os.makedirs(audio_directory, exist_ok=True)
 
-    audio_file_path = os.path.join(audio_directory, "podcast.mp3")
+    audio_file_path = os.path.join(audio_directory, f"podcast_{client_id}.mp3")
     with open(audio_file_path, "wb") as file:
         for chunk in response.iter_content(chunk_size=8192):
             file.write(chunk)
