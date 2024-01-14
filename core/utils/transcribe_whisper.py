@@ -10,7 +10,7 @@ def transcribe_audio(audio_path):
     model = whisper.load_model("base")
     return model.transcribe(audio_path)
 
-def transcribe_large_audio_with_whisper(audio_path):
+def transcribe_large_audio_with_whisper(audio_path, client_id):
     audio = AudioSegment.from_file(audio_path)
     total_length = len(audio)
     num_parts = math.ceil(total_length / (DURATION * 1000))
@@ -18,17 +18,17 @@ def transcribe_large_audio_with_whisper(audio_path):
 
     texts = []
     for i in range(num_parts):
-        texts.append(transcribe_audio_chunk(audio, i))
+        texts.append(transcribe_audio_chunk(audio, i, client_id))
     whole_text = ' '.join(texts)
     os.remove(audio_path)
     return whole_text
 
 
-def transcribe_audio_chunk(audio, index):
+def transcribe_audio_chunk(audio, index, client_id):
     start_time = index * DURATION * 1000
     end_time = (index + 1) * DURATION * 1000
     chunk_audio = audio[start_time:end_time]
-    output_path = os.path.join(BASE_CHUNK_PATH, f"part_{index+1}.mp3")
+    output_path = os.path.join(BASE_CHUNK_PATH, f"part_{client_id}_{index+1}.mp3")
     chunk_audio.export(output_path, format="mp3")
     text = transcribe_audio(output_path)
     os.remove(output_path)
