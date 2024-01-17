@@ -1,20 +1,24 @@
 "use client";
+import Link from "next/link";
 
 export default function About(){
     return(
-        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-gray-100 dark:bg-gray-800">
-        <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center space-y-4 text-center">
-            <div className="space-y-2">
-                <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl text-gray-900 dark:text-gray-100">
-                About Our Service
+        <section className="flex justify-center items-center w-full h-screen bg-gray-100 dark:bg-gray-800">
+            <div className="text-center">
+                <h1 className="text-2xl font-bold tracking-tighter sm:text-2xl md:text-4xl lg:text-5xl text-gray-900 dark:text-gray-100">
+                    About
                 </h1>
-                <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
-                We provide top-notch services that will boost your productivity. Join us and experience the difference.
-                </p>
+                <div className="max-w-xl mx-auto">
+                    <p className="mt-4 text-gray-500 md:text-xl dark:text-gray-400">
+                        This opensource project helps you to get a summary of podcast episodes. It uses the Google Gemini API to summarize of podcast transcribe.
+                        Any contributions in the project are welcome. For More information visit 
+                        <Link href="https://github.com/PooriaT/Sumcast" target="_blank" className="text-blue-500">Github</Link>.
+                        Also, you can send me an email at <Link href="mailto:pooria@duck.com" target="_blank" className="text-blue-500">pooria@duck.com</Link> 
+                        or refer to my personal page at <Link href="https://pooriat.com" target="_blank" className="text-blue-500">pooriat.com</Link>.
+                        Respectfully, you can support the project by <Link href="https://www.buymeacoffee.com/pooria7" target="_blank" className="text-blue-500">buying me a book</Link>
+                    </p>
+                </div>
             </div>
-            </div>
-        </div>
         </section>
     )
 }

@@ -57,7 +57,9 @@ export default function Main() {
     }
 
     return (
-        <div>
+        <div
+            id="main" 
+            className="flex justify-center items-center w-full h-fit bg-gray-200 dark:bg-gray-700">
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
@@ -76,7 +78,7 @@ export default function Main() {
                     required
                 />
                 <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"  type="submit" disabled={isLoading}>
-                    {isLoading ? 'Loading...' : 'Submit'}
+                    {isLoading ? 'Loading...' : 'Lets Summarize!'}
                 </button>
             </form>
             {summary && (
