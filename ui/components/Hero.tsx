@@ -1,21 +1,35 @@
 "use client";
+import Image from "next/image";
 
 export default function Hero() {
     return (
-        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-gray-100 dark:bg-gray-800">
-        <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center space-y-4 text-center">
-            <div className="space-y-2">
-                <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl text-gray-900 dark:text-gray-100">
-                Welcome to Our Amazing Service
-                </h1>
-                <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
-                We provide top-notch services that will boost your productivity. Join us and experience the difference.
-                </p>
+        <section className="flex justify-center items-center w-full h-screen bg-gray-100 dark:bg-gray-800">
+            <div className="text-center grid grid-cols-2">
+                <div>
+                    <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl text-gray-900 dark:text-gray-100">
+                        Welcome to Sumcast!
+                    </h1>
+                    <p className="mt-4 text-gray-500 md:text-xl dark:text-gray-400">
+                        You can summarize your podcast episodes in just a few clicks.
+                    </p>
+                    <a href="#main">
+                        <button className="btn mt-8 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                            Summarizing!
+                        </button>
+                    </a>
+                </div>
+                <div className="flex">
+                    <Image 
+                        src="/hero.svg" 
+                        alt="Hero Component Image" 
+                        width="0"
+                        height="0"
+                        sizes="100vw"
+                        className="w-full h-auto"
+                    />
+                </div>
             </div>
-            </div>
-        </div>
         </section>
-    )
+    );
 }
 

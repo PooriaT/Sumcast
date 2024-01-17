@@ -17,6 +17,9 @@ def summarizing(text_path, streaming):
         Summarize the text and highlight the important parts. The text is as follows: \n
         {text}
     """
-    response = model.generate_content(prompt, stream=streaming)
+    try:
+        response = model.generate_content(prompt, stream=streaming)
+    except ValueError:
+        response = response.prompt_feedback
 
     return response
