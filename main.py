@@ -31,9 +31,3 @@ def get_summary(body: dict):
     client_id = body.get('client_id')
     summary = process_podcast_text(podcast_name, episode_name, client_id)
     return summary
-
-# This is for testing
-@app.get("/api/prompt_feedback/")
-def prompt_feedback():
-    summary = summarizing(os.path.join(BASE_TEXT_PATH, "whole_text_clientid.txt"), streaming=False)
-    return {"feedback": str(summary.prompt_feedback)}

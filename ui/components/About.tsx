@@ -10,12 +10,13 @@ export default function About(){
                 </h1>
                 <div className="max-w-xl mx-auto">
                     <p className="mt-4 text-gray-500 md:text-xl dark:text-gray-400">
-                        This opensource project helps you to get a summary of podcast episodes. It uses the Google Gemini API to summarize of podcast transcribe.
-                        Any contributions in the project are welcome. For More information visit 
+                        This app facilitates podcast episode summaries by leveraging the Google Gemini API for transcription summarization. 
+                        Contributions to the project are encouraged. For additional details, please visit 
                         <Link href="https://github.com/PooriaT/Sumcast" target="_blank" className="text-blue-500">Github</Link>.
-                        Also, you can send me an email at <Link href="mailto:pooria@duck.com" target="_blank" className="text-blue-500">pooria@duck.com</Link> 
-                        or refer to my personal page at <Link href="https://pooriat.com" target="_blank" className="text-blue-500">pooriat.com</Link>.
-                        Respectfully, you can support the project by <Link href="https://www.buymeacoffee.com/pooria7" target="_blank" className="text-blue-500">buying me a book</Link>
+                        Feel free to reach out via email at <Link href="mailto:pooria@duck.com" target="_blank" className="text-blue-500">pooria@duck.com</Link> 
+                        or visit my personal page at <Link href="https://pooriat.com" target="_blank" className="text-blue-500">pooriat.com</Link>.
+                        If you'd like to support the project, consider <Link href="https://www.buymeacoffee.com/pooria7" target="_blank" className="text-blue-500">buying me a book</Link>.
+                        Your support is appreciated.
                     </p>
                 </div>
             </div>

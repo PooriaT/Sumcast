@@ -59,7 +59,7 @@ export default function Main() {
     return (
         <div
             id="main" 
-            className="flex justify-center items-center w-full h-fit bg-gray-200 dark:bg-gray-700">
+            className="flex flex-col justify-center items-center w-full h-fit bg-gray-200 dark:bg-gray-700">
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
@@ -82,7 +82,7 @@ export default function Main() {
                 </button>
             </form>
             {summary && (
-                <div className="lg:w-2/3 w-4/5 overflow-auto border-2 rounded-2xl lg:p-10 p-4 lg:text-md text-xs">
+                <div className="my-8 lg:w-2/3 w-4/5 overflow-auto border-2 rounded-2xl lg:p-10 p-4 lg:text-md text-xs">
                     <pre className="whitespace-pre-wrap">{summary}</pre>
                 </div>
             )}
