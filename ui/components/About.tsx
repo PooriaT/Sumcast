@@ -15,7 +15,7 @@ export default function About(){
                         <Link href="https://github.com/PooriaT/Sumcast" target="_blank" className="text-blue-500">Github</Link>.
                         Feel free to reach out via email at <Link href="mailto:pooria@duck.com" target="_blank" className="text-blue-500">pooria@duck.com</Link> 
                         or visit my personal page at <Link href="https://pooriat.com" target="_blank" className="text-blue-500">pooriat.com</Link>.
-                        If you'd like to support the project, consider <Link href="https://www.buymeacoffee.com/pooria7" target="_blank" className="text-blue-500">buying me a book</Link>.
+                        If you would like to support the project, consider <Link href="https://www.buymeacoffee.com/pooria7" target="_blank" className="text-blue-500">buying me a book</Link>.
                         Your support is appreciated.
                     </p>
                 </div>
