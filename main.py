@@ -1,9 +1,10 @@
-import os
+# import os
+# import asyncio
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
 from core.utils.process import process_podcast_text
-from core.utils.gemini import summarizing
+from core.utils.subprocess import linux_process
 from constants import BASE_TEXT_PATH
 
 app = FastAPI()
@@ -19,10 +20,10 @@ app.add_middleware(
 
 # uvicorn.run('main:app', host="0.0.0.0", port=8000, workers=4)
 # python3 -m uvicorn main:app --host 0.0.0.0 --port 8000 --reload -> for development
-# @app.get("/")
-# def root():
-#     with open("static/index.html", "r", encoding="utf-8") as file:
-#         return HTMLResponse(file.read())
+
+# @app.on_event("startup")
+# async def startup_event():
+#     asyncio.create_task(linux_process())
 
 @app.post("/api/summarize/")
 def get_summary(body: dict):
