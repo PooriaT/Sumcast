@@ -4,7 +4,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from core.utils.process import process_podcast_text
-from core.utils.subprocess import linux_process
+from core.utils.command_process import linux_process
 from constants import BASE_TEXT_PATH
 
 app = FastAPI()
