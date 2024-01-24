@@ -1,5 +1,6 @@
-const baseURL = 'http://localhost:8000/api';
+const baseURL = 'https://sumcast-api.onrender.com/api';
 
+// URL : 'http://localhost:8000/api'  OR 'https://sumcast-api.onrender.com/api'
 
 export async function postFastAPIText(
     endpoint: string,
