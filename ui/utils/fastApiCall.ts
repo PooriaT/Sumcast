@@ -1,4 +1,4 @@
-const baseURL = 'https://sumcast-api.onrender.com/api';
+const baseURL = 'http://localhost:8000/api';
 
 // URL : 'http://localhost:8000/api'  OR 'https://sumcast-api.onrender.com/api'
 

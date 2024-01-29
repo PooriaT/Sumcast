@@ -11,7 +11,7 @@ export default function About(){
                 <div className="max-w-xl mx-auto">
                     <p className="mt-4 text-gray-500 md:text-xl dark:text-gray-400">
                         This app facilitates podcast episode summaries by leveraging the Google Gemini API for transcription summarization. 
-                        Contributions to the project are encouraged. For additional details, please visit 
+                        Contributions to the project are encouraged. For additional details, please visit  
                         <Link href="https://github.com/PooriaT/Sumcast" target="_blank" className="text-blue-500">Github</Link>.
                         Feel free to reach out via email at <Link href="mailto:pooria@duck.com" target="_blank" className="text-blue-500">pooria@duck.com</Link> 
                         or visit my personal page at <Link href="https://pooriat.com" target="_blank" className="text-blue-500">pooriat.com</Link>.
