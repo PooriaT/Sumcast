@@ -6,6 +6,8 @@ This app helps you to summarize a podcast content.
 
 The Web app to summarize the podcast content
 
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/KprKj7lCiBU/0.jpg)](https://www.youtube.com/watch?v=KprKj7lCiBU)
+
 ## Descritpion
 
 In this project, first we retrieve the related information of a specific podcast and related episode. Then, store the audio format of that episode. The audio file will be transcribe via OpenAI Whisper module. Finally, the extracted text of podcast content is fed into Google Gemini API to sumerize and highlight the whole content.
@@ -68,6 +70,8 @@ uvicorn main:app --host 0.0.0.0 --port 8000 --reload
 ```
 
 On another terminal, access the `ui` folder and then run:
+
+(**Attention**: To test it locally, you need to change the base url in frontend to `http://localhost:8000/api`. You can find it in `ui/utils/fastApiCall.ts`.)
 
 ```bash
 npm run dev
