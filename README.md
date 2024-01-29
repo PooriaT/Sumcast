@@ -6,7 +6,16 @@ This app helps you to summarize a podcast content.
 
 The Web app to summarize the podcast content
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/KprKj7lCiBU/0.jpg)](https://www.youtube.com/watch?v=KprKj7lCiBU)
+<iframe
+  width="640"
+  height="480"
+  src="https://www.youtube.com/embed/KprKj7lCiBU"
+  frameborder="0"
+  allow="autoplay; encrypted-media"
+  allowfullscreen
+>
+</iframe>
+
 
 ## Descritpion
 
