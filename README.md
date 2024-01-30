@@ -1,6 +1,6 @@
 # podcast_summary
 
-This app helps you to summarize a podcast content. 
+This app helps you to summarize podcast content. 
 
 # Sumcast
 
@@ -10,7 +10,7 @@ The Web app to summarize the podcast content
 
 ## Descritpion
 
-In this project, first we retrieve the related information of a specific podcast and related episode. Then, store the audio format of that episode. The audio file will be transcribe via OpenAI Whisper module. Finally, the extracted text of podcast content is fed into Google Gemini API to sumerize and highlight the whole content.
+In this project, first, we retrieve the related information of a specific podcast and related episode. Then, store the audio format of that episode. The audio file will be transcribed via OpenAI Whisper module. Finally, the extracted text of podcast content is fed into Google Gemini API to summarize and highlight the whole content.
 
 ## Getting Started
 
@@ -89,7 +89,7 @@ npm run build
 npm start
 ```
 
-In the root direcotry:
+In the root directory:
 
 ```bash
 uvicorn main:app --host 0.0.0.0 --port 8000 --worker 4
@@ -106,7 +106,7 @@ docker build -t sumcast_backend .
 ```
 ```bash
 cd ui 
-docekr build -t sumcast_frontend .
+docker build -t sumcast_frontend .
 ```
 
 To run the containers:
@@ -121,7 +121,7 @@ docker run -p 3000:3000 -name <name> sumcast_frontend
 
 ## Test
 
-To test the API, below command can be used:
+To test the API, the below command can be used:
 
 ```bash
 curl -X POST -H "Content-Type: application/json" -d '{"podcast_name": "startalk", "episode_name": "This is Your Brain on social media with anna lembke, MD"}' http://localhost:8000/api/summarize/
@@ -129,6 +129,6 @@ curl -X POST -H "Content-Type: application/json" -d '{"podcast_name": "startalk"
 
 ## Contribution
 
-We welcome contributions from the community! If you have suggestions, bug reports, or would like to contribute code or documentation, please feel free to open an issue or submit a pull request on our GitHub repository.
+We welcome contributions from the community! If you have suggestions, or bug reports, or would like to contribute code or documentation, please feel free to open an issue or submit a pull request on our GitHub repository.
 
 ## License
